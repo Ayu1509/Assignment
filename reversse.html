@@ -1,0 +1,46 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function reverseWords(sentence) {
+    let reversedSentence = '';
+    let currentWord = '';
+
+    for (let i = 0; i < sentence.length; i++) {
+        let char = sentence[i];
+
+        if (char === ' ' || i === sentence.length - 1) {
+            reversedSentence += reverseString(currentWord);
+
+            if (i !== sentence.length - 1) {
+                reversedSentence += ' ';
+            }
+            currentWord = '';
+        } else { 
+            currentWord += char;
+        }
+    }
+
+    return reversedSentence;
+}
+
+function reverseString(str) {
+    let reversed = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+
+let inputSentence = "This is a sunny day";
+let result = reverseWords(inputSentence);
+console.log(result);
+
+    </script>
+</body>
+</html>
